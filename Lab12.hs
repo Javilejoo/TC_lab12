@@ -26,9 +26,10 @@ ejercicio2 = do
     putStrLn "Ingrese la potencia a calcular (n):"
     nStr <- getLine                          -- Leer la entrada del usuario como cadena
     let n = read nStr :: Int                 -- Convertir la cadena a un entero
-    let result = map (^ n) numeros   -- Aplicar la potencia a cada elemento de la lista
+    let result = map (\x -> x ^ n) numeros   -- Aplicar la potencia usando una función lambda
     putStrLn "Resultado:"
     print result                             -- Mostrar el resultado
+
 
 
 
@@ -51,9 +52,10 @@ ejercicio4 = do
     putStrLn "Ingrese los colores a borrar separados por comas:"
     input <- getLine
     let colores1 = words [if c == ',' then ' ' else c | c <- input] -- Dividir por comas
-    let coloresResultantes = filter (`notElem` colores1) colores   -- Filtrar elementos no deseados
+    let coloresResultantes = filter (\color -> not (color `elem` colores1)) colores -- Usar lambda
     putStrLn "Lista resultante:"
     print coloresResultantes
+
 
 
 
