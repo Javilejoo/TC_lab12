@@ -37,12 +37,13 @@ ejercicio3 :: IO ()
 ejercicio3 = do
     let x = [[1, 2, 3, 1],
              [4, 5, 6, 0],
-             [7, 8, 9, -1]]
-    putStrLn "Matriz original:"
+             [7, 8, 9, -1]] -- Matriz original
+    putStrLn "Matriz X:"
     print x
-    putStrLn "Matriz transpuesta:"
-    let xT = transpose x
+    putStrLn "Transpuesta de la matriz X usando lambda:"
+    let xT = map (\col -> map (\row -> row !! col) x) [0..length (head x) - 1] -- Usar lambdas
     print xT
+
 
 ejercicio4 :: IO ()
 ejercicio4 = do
